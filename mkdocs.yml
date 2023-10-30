@@ -45,3 +45,7 @@ markdown_extensions:
     - def_list
     - pymdownx.tasklist:
         custom_checkbox: true
+extra:
+  analytics:
+    provider: google
+    property: G-RWH7DVZ8QV
