@@ -1,7 +1,7 @@
 
 # Home
 
-Welcome to the Elastic Load Balancing (ELB) best practices guides. The aim of this project is to offer prescriptive guidance for utilizing ELB in the AWS Cloud. The content in the guides is a collection of best practices aligned with the AWS Well-Architected Framework and other sources such as the AWS documentation, AWS Whitepapers, Amazon Builders' Library. As the ELB Team, we have incorporated insights gained from our direct experiences with customers. We also welcome suggestions from the community.
+Welcome to the Elastic Load Balancing (ELB) best practices guides. The aim of this project is to offer prescriptive guidance for utilizing ELB in the AWS Cloud. The content in the guides is a collection of best practices aligned with the [AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/){:target="_blank"} and other sources such as the AWS documentation, AWS Whitepapers, Amazon Builders' Library. As the ELB Team, we have incorporated insights gained from our direct experiences with customers. We also welcome suggestions from the community.
 
 We currently have published guides for the following topics:
 
