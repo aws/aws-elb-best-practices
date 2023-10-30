@@ -1,11 +1,6 @@
-## My Project
+## Amazon Elastic Load Balancing (ELB) Best Practices
 
-TODO: Fill this README out!
-
-Be sure to:
-
-* Change the title in this README
-* Edit your repository description on GitHub
+Code repository for the ELB Best Practices Guides
 
 ## Security
 
