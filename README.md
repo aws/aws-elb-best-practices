@@ -1,6 +1,10 @@
 ## Amazon Elastic Load Balancing (ELB) Best Practices
 
-Code repository for the ELB Best Practices Guides
+This is the code repository for the ELB Best Practices Guides
+
+The aim of this project is to offer prescriptive guidance for utilizing ELB in the AWS Cloud. The content in the guides is a collection of best practices aligned with the AWS Well-Architected Framework and other sources such as the AWS documentation, AWS Whitepapers, Amazon Builders' Library. As the ELB Team, we have incorporated insights gained from our direct experiences with customers. We also welcome suggestions from the community.
+
+For official ELB Documentation, [click here](https://docs.aws.amazon.com/elasticloadbalancing/)
 
 ## Security
 
