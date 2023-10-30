@@ -13,7 +13,6 @@ The section contains all best practices mentioned in the guide.
 
 - [x] 
 --8<-- "alb-bp-sec04.md"
-[(more details)](/aws-elb-best-practices/security/data_protection/#tls-listeners)
 [(more details)](/aws-elb-best-practices/security/data_protection/#security-policy-for-tls-listeners)
 
 - [x] 
