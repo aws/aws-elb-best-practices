@@ -643,28 +643,28 @@
 <li class="task-list-item">
 <p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 
     <strong>[ALB, NLB]</strong> Use HTTPS / TLS listeners
-<a href="/security/data_protection/#tls-listeners">(more details)</a></p>
+<a href="/aws-elb-best-practices/security/data_protection/#tls-listeners">(more details)</a></p>
 </li>
 <li class="task-list-item">
 <p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 
     <strong>[ALB] </strong>Use HTTP to HTTPS redirection rule.
-<a href="/security/data_protection/#tls-listeners">(more details)</a></p>
+<a href="/aws-elb-best-practices/security/data_protection/#tls-listeners">(more details)</a></p>
 </li>
 <li class="task-list-item">
 <p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 
     <strong>[ALB, NLB]</strong> Use the most restrict security policy that is compatible with clients.
-<a href="/security/data_protection/#tls-listeners">(more details)</a>
-<a href="/security/data_protection/#security-policy-for-tls-listeners">(more details)</a></p>
+<a href="/aws-elb-best-practices/security/data_protection/#tls-listeners">(more details)</a>
+<a href="/aws-elb-best-practices/security/data_protection/#security-policy-for-tls-listeners">(more details)</a></p>
 </li>
 <li class="task-list-item">
 <p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 
     <strong>[ALB, NLB]</strong> Use AWS Certificate Manager for TLS certificates.
-<a href="/security/data_protection/#tls-certificates">(more details)</a></p>
+<a href="/aws-elb-best-practices/security/data_protection/#tls-certificates">(more details)</a></p>
 </li>
 <li class="task-list-item">
 <p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 
     <strong>[ALB, NLB]</strong> For end-to-end encryption, use TLS/HTTPS on both the load balancer listener and target group.
-<a href="/security/data_protection/#tls-at-the-targets">(more details)</a></p>
+<a href="/aws-elb-best-practices/security/data_protection/#tls-at-the-targets">(more details)</a></p>
 </li>
 </ul>
 <h3 id="incident-response">Incident Response</h3>
@@ -672,27 +672,27 @@
 <li class="task-list-item">
 <p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 
     <strong>[ALB, NLB]</strong> Enable access logs.
-<a href="/security/incident_response/#access-logs">(more details)</a></p>
+<a href="/aws-elb-best-practices/security/incident_response/#access-logs">(more details)</a></p>
 </li>
 <li class="task-list-item">
 <p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 
     <strong>[ALB, NLB]</strong> Consolidate access logs in the Log Archive account.
-<a href="/security/incident_response/#access-logs">(more details)</a></p>
+<a href="/aws-elb-best-practices/security/incident_response/#access-logs">(more details)</a></p>
 </li>
 <li class="task-list-item">
 <p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 
     <strong>[ALB, NLB]</strong> Use a tool to analyze access logs.
-<a href="/security/incident_response/#access-logs">(more details)</a></p>
+<a href="/aws-elb-best-practices/security/incident_response/#access-logs">(more details)</a></p>
 </li>
 <li class="task-list-item">
 <p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 
     <strong>[ALB, NLB]</strong> Monitor events using AWS Health.
-<a href="/security/incident_response/#events">(more details)</a></p>
+<a href="/aws-elb-best-practices/security/incident_response/#events">(more details)</a></p>
 </li>
 <li class="task-list-item">
 <p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 
     <strong>[ALB, NLB]</strong> Include contacting AWS in your security incident playbooks.
-<a href="/security/incident_response/#engage-aws-security">(more details)</a></p>
+<a href="/aws-elb-best-practices/security/incident_response/#engage-aws-security">(more details)</a></p>
 </li>
 </ul>
 <h3 id="infrastructure-protection">Infrastructure Protection</h3>
@@ -700,65 +700,65 @@
 <li class="task-list-item">
 <p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 
     <strong>[ALB, NLB]</strong> For DDoS protection against sophisticated, frequent and large attacks enable AWS Shield Advanced.
-<a href="/security/infrastructure_protection/#consider-using-aws-shield-advanced">(more details)</a></p>
+<a href="/aws-elb-best-practices/security/infrastructure_protection/#consider-using-aws-shield-advanced">(more details)</a></p>
 </li>
 <li class="task-list-item">
 <p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 
     <strong>[ALB, NLB]</strong> For enhanced DDoS resilience, allow untracked flows in the security group.
-<a href="/security/infrastructure_protection/#security-group-flow-tracking-alb-only">(more details)</a></p>
+<a href="/aws-elb-best-practices/security/infrastructure_protection/#security-group-flow-tracking-alb-only">(more details)</a></p>
 </li>
 <li class="task-list-item">
 <p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 
     <strong>[ALB, NLB]</strong> For DDoS protection and mitigation, know the normal behaviour of your clients.
-<a href="/security/infrastructure_protection/#know-normal-behavior-traffic-pattern-user-agents-demographics">(more details)</a></p>
+<a href="/aws-elb-best-practices/security/infrastructure_protection/#know-normal-behavior-traffic-pattern-user-agents-demographics">(more details)</a></p>
 </li>
 <li class="task-list-item">
 <p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 
     <strong>[ALB, NLB]</strong> For DDoS mitigation, scale the targets to absorb the traffic.
-<a href="/security/infrastructure_protection/#plan-for-scale">(more details)</a></p>
+<a href="/aws-elb-best-practices/security/infrastructure_protection/#plan-for-scale">(more details)</a></p>
 </li>
 <li class="task-list-item">
 <p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 
     <strong>[ALB]</strong> For DDoS protection, use AWS WAF integrated with ALB for Application layer defense.
-<a href="/security/infrastructure_protection/#consider-using-aws-waf-alb-only">(more details)</a></p>
+<a href="/aws-elb-best-practices/security/infrastructure_protection/#consider-using-aws-waf-alb-only">(more details)</a></p>
 </li>
 <li class="task-list-item">
 <p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 
     <strong>[ALB]</strong> For DDoS protection, use AWS WAF rate-based rules.
-<a href="/security/infrastructure_protection/#consider-using-aws-waf-alb-only">(more details)</a></p>
+<a href="/aws-elb-best-practices/security/infrastructure_protection/#consider-using-aws-waf-alb-only">(more details)</a></p>
 </li>
 <li class="task-list-item">
 <p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 
     <strong>[ALB, NLB]</strong> For DDoS protection, leverage AWS Edge locations by integrating either CloudFront or Global Accelerator to your load balancer.
-<a href="/security/infrastructure_protection/#consider-using-amazon-cloudfront-or-aws-global-accelerator">(more details)</a></p>
+<a href="/aws-elb-best-practices/security/infrastructure_protection/#consider-using-amazon-cloudfront-or-aws-global-accelerator">(more details)</a></p>
 </li>
 <li class="task-list-item">
 <p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 
     <strong>[ALB]</strong> When using CloudFront, restrict users from directly accessing the Application Load Balancer.
-<a href="/security/infrastructure_protection/#when-using-cloudfront-restrict-the-direct-access-to-the-load-balancer">(more details)</a></p>
+<a href="/aws-elb-best-practices/security/infrastructure_protection/#when-using-cloudfront-restrict-the-direct-access-to-the-load-balancer">(more details)</a></p>
 </li>
 <li class="task-list-item">
 <p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 
     <strong>[ALB, NLB]</strong> When using CloudFront, lock down the load balancer security group to accept connections only from CloudFront.
-<a href="/security/infrastructure_protection/#when-using-cloudfront-restrict-the-direct-access-to-the-load-balancer">(more details)</a></p>
+<a href="/aws-elb-best-practices/security/infrastructure_protection/#when-using-cloudfront-restrict-the-direct-access-to-the-load-balancer">(more details)</a></p>
 </li>
 <li class="task-list-item">
 <p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 
     <strong>[ALB, NLB]</strong> Lock down the target security groups to receive traffic only from the load balancer.
-<a href="/security/infrastructure_protection/#target-security-groups">(more details)</a></p>
+<a href="/aws-elb-best-practices/security/infrastructure_protection/#target-security-groups">(more details)</a></p>
 </li>
 </ul>
 <h3 id="security-assurance">Security Assurance</h3>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 
     <strong>[ALB, NLB]</strong> Use automated security and compliance checks.
-<a href="/security/security_assurance/#automated-security-and-compliance-checks">(more details)</a></li>
+<a href="/aws-elb-best-practices/security/security_assurance/#automated-security-and-compliance-checks">(more details)</a></li>
 </ul>
 <h3 id="vulnerability-management">Vulnerability Management</h3>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 
     <strong>[ALB]</strong> Use Strictest mode for desync mitigation.
-<a href="/security/vulnerability_management/#desync-mitigation-alb-only">(more details)</a></li>
+<a href="/aws-elb-best-practices/security/vulnerability_management/#desync-mitigation-alb-only">(more details)</a></li>
 </ul>
 
 
