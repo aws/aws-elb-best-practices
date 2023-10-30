@@ -1,0 +1,47 @@
+site_name: ELB Best Practices Guides
+repo_name: "aws/aws-elb-best-practices"
+repo_url: "https://github.com/aws/aws-elb-best-practices"
+docs_dir: "content"
+
+theme:
+  name: material
+  features:
+    - header.autohide
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - search.share
+  logo: ./images/elb-icon-large.png
+  favicon: ./images/elb-icon.png
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    - scheme: default
+      primary: grey
+      # accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: switch to light mode
+    
+
+
+plugins: 
+    - search
+markdown_extensions:
+    - attr_list
+    - abbr
+    - admonition
+    - pymdownx.superfences
+    - pymdownx.tabbed:
+        alternate_style: true 
+    - pymdownx.snippets:
+        check_paths: true
+        base_path:
+        - content/src/markdown/.snippets
+    - def_list
+    - pymdownx.tasklist:
+        custom_checkbox: true

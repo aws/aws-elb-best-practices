@@ -1,0 +1,1 @@
+    **[ALB]** For DDoS protection, use AWS WAF rate-based rules.

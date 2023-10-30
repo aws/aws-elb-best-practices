@@ -1,0 +1,1 @@
+    **[ALB, NLB]** For DDoS protection, leverage AWS Edge locations by integrating either CloudFront or Global Accelerator to your load balancer.

@@ -1,0 +1,1 @@
+    **[ALB] **Use HTTP to HTTPS redirection rule.

@@ -1,0 +1,1 @@
+    **[ALB, NLB]** For DDoS protection against sophisticated, frequent and large attacks enable AWS Shield Advanced.

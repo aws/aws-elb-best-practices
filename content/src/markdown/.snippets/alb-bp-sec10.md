@@ -1,0 +1,1 @@
+    **[ALB, NLB]** For DDoS mitigation, scale the targets to absorb the traffic.

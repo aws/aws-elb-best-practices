@@ -1,0 +1,1 @@
+    **[ALB, NLB]** Use AWS Certificate Manager for TLS certificates.

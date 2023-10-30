@@ -1,0 +1,1 @@
+    **[ALB, NLB]** Lock down the target security groups to receive traffic only from the load balancer.

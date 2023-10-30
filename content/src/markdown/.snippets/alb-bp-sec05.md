@@ -1,0 +1,1 @@
+    **[ALB, NLB]** For end-to-end encryption, use TLS/HTTPS on both the load balancer listener and target group.

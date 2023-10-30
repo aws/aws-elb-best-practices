@@ -1,0 +1,1 @@
+    **[ALB]** For DDoS protection, use AWS WAF integrated with ALB for Application layer defense.
