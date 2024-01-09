@@ -1,0 +1,1 @@
+    **[ALB, NLB]** Turn off cross-zone load balancing to achieve Availability Zone Independence (AZI).

@@ -1,0 +1,1 @@
+    **[ALB, NLB]** For high availability needs, consider adopting the static stability pattern.

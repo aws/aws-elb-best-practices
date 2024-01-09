@@ -1,0 +1,1 @@
+    **[ALB, NLB]** Make sure clients and local DNS servers respect DNS TTL (time to live) of 60 seconds, and do not cache DNS results longer than the TTL.
