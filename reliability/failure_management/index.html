@@ -1,0 +1,973 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../workload_architecture/">
+      
+      
+      <link rel="icon" href="../../images/elb-icon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.7">
+    
+    
+      
+        <title>Failure Management - ELB Best Practices Guides</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4b4a2bd9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-RWH7DVZ8QV"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-RWH7DVZ8QV",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-RWH7DVZ8QV",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#failure-management" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="ELB Best Practices Guides" class="md-header__button md-logo" aria-label="ELB Best Practices Guides" data-md-component="logo">
+      
+  <img src="../../images/elb-icon-large.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ELB Best Practices Guides
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Failure Management
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="indigo"  aria-label="switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/aws/aws-elb-best-practices" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aws/aws-elb-best-practices
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ELB Best Practices Guides" class="md-nav__button md-logo" aria-label="ELB Best Practices Guides" data-md-component="logo">
+      
+  <img src="../../images/elb-icon-large.png" alt="logo">
+
+    </a>
+    ELB Best Practices Guides
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/aws/aws-elb-best-practices" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aws/aws-elb-best-practices
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../checklist/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Checklist
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Reliability
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Reliability
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Failure Management
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Failure Management
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#health-checks" class="md-nav__link">
+    Health Checks
+  </a>
+  
+    <nav class="md-nav" aria-label="Health Checks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deep-health-checks" class="md-nav__link">
+    Deep health checks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#health-check-interval-and-timeout" class="md-nav__link">
+    Health Check interval and timeout
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#client-behavior" class="md-nav__link">
+    Client behavior
+  </a>
+  
+    <nav class="md-nav" aria-label="Client behavior">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fail-fast" class="md-nav__link">
+    Fail-fast
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retrying-failed-requests-with-exponential-back-off-and-jitter" class="md-nav__link">
+    Retrying failed requests with exponential back-off and jitter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-dns-to-deliver-traffic-to-load-balancers" class="md-nav__link">
+    Use DNS to deliver traffic to load balancers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-amazon-route-53-application-recovery-controller-for-zonal-shift" class="md-nav__link">
+    Use Amazon Route 53 Application Recovery Controller for zonal shift
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workload_architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Workload Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Security
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/data_protection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Protection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/incident_response/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Incident Response
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/infrastructure_protection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Infrastructure Protection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/security_assurance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Security Assurance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/vulnerability_management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vulnerability Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#health-checks" class="md-nav__link">
+    Health Checks
+  </a>
+  
+    <nav class="md-nav" aria-label="Health Checks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deep-health-checks" class="md-nav__link">
+    Deep health checks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#health-check-interval-and-timeout" class="md-nav__link">
+    Health Check interval and timeout
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#client-behavior" class="md-nav__link">
+    Client behavior
+  </a>
+  
+    <nav class="md-nav" aria-label="Client behavior">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fail-fast" class="md-nav__link">
+    Fail-fast
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retrying-failed-requests-with-exponential-back-off-and-jitter" class="md-nav__link">
+    Retrying failed requests with exponential back-off and jitter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-dns-to-deliver-traffic-to-load-balancers" class="md-nav__link">
+    Use DNS to deliver traffic to load balancers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-amazon-route-53-application-recovery-controller-for-zonal-shift" class="md-nav__link">
+    Use Amazon Route 53 Application Recovery Controller for zonal shift
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="failure-management">Failure Management</h1>
+<hr />
+<h2 id="health-checks">Health Checks</h2>
+<h3 id="deep-health-checks">Deep health checks</h3>
+<p>Configure your health check protocol to be more comprehensive than just a simple TCP check. While TCP checks can indicate basic connectivity, they often don't provide a holistic view of the service's health. Implementing deep health checks is recommended. Deep health checks are more detailed checks to make sure that each service in your system is running optimally. In contrast to shallow health checks (which might only verify that a server is running), deep health checks involve checking not only local components in the targets but also dependencies that are vital for your applications to work.</p>
+<p>Note that your application may not natively offer a HTTP/HTTPS service so you may have to create a small web service that (when called) is able to fully check the health of the service that is running and then respond appropriately to the health check.</p>
+<div class="admonition tip">
+<p class="admonition-title">Best Practice</p>
+<p><strong>[ALB, NLB]</strong> Configure deep health check, that include the application's dependencies. </p>
+</div>
+<p><img alt="Deep health checks for ELB" src="../images/deep-health-check-elb.png" /></p>
+<p><em>Image: Deep health check configuration, checking dependencies and returning error if a connection to a dependency fails.</em></p>
+<div class="admonition note">
+<p class="admonition-title">Considerations</p>
+<ul>
+<li>
+<p>Deep health checks should include only critical dependencies vital for the service's operation. If a "soft" dependency, which is not essential, is included in these checks, it may inadvertently be treated as a critical one, potentially increasing the scope of the impact during failures. <a href="https://aws.amazon.com/builders-library/implementing-health-checks/">This article from the Amazon Builder's library</a> details the associated risks and trade-offs.</p>
+</li>
+<li>
+<p>Deep health checks can become computationally expensive. Some factors such as the number of nodes, cross-zone configuration and health check frequency can increase the number of health check probes. To prevent the response to health checks become a burden for the system and its dependencies, consider creating a process that checks dependency and write a static file. The static file will then be updated by a single process but used by all health check attempts.</p>
+</li>
+</ul>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title">References and Further Information</p>
+<p><a href="https://aws.amazon.com/blogs/networking-and-content-delivery/choosing-the-right-health-check-with-elastic-load-balancing-and-ec2-auto-scaling/" target="_blank">Choosing the right health check with Elastic Load Balancing and EC2 Auto Scaling</a></p>
+<p><a href="https://aws.amazon.com/builders-library/implementing-health-checks/" target="_blank">Implementing health checks</a></p>
+<p><a href="https://catalog.workshops.aws/well-architected-reliability/en-US/3-change-management/20-implementing-health-checks-and-dependencies/3-deep-healthcheck" target="_blank">Workshop - Implement deep health checks</a></p>
+<p><a href="https://www.youtube.com/watch?v=6iO6wtDOKGM&amp;t=466s" target="_blank">AWS re:Invent 2023 - Enhance your app’s security &amp; availability with Elastic Load Balancing</a></p>
+</div>
+<hr />
+<h3 id="health-check-interval-and-timeout">Health Check interval and timeout</h3>
+<p>When configuring health check settings such as timeout, threshold, and interval, it's crucial to align your strategy with your availability goals. One key goal might be to quickly remove a failing target to maintain system integrity, while also being mindful of avoiding false positives. However, it's important to consider scenarios where the entire system is under heavy load and may struggle to respond to health check probes. Such situations can lead to a downward spiral problem, where overloaded targets are removed, inadvertently increasing the load on the remaining ones, potentially leading to their removal as well.</p>
+<p>There are two common strategies to address this:</p>
+<ol>
+<li><strong>Brownout</strong> : This strategy allows targets to continue operating under heavy load, however with slower response times. Implementation involves setting longer intervals and timeouts for health checks.</li>
+<li><strong>Blackout</strong>: This strategy prioritizes fail away and/or quickly terminate any failing resources. It is implemented by configuring shorter intervals and timeouts for health checks.</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Best Practice</p>
+<p><strong>[ALB, NLB]</strong> Configure your Health Check to match your availability goals.</p>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title">References and Further Information</p>
+<p><a href="https://www.youtube.com/watch?v=6iO6wtDOKGM&amp;t=466s" target="_blank">AWS re:Invent 2023 - Enhance your app’s security &amp; availability with Elastic Load Balancing</a></p>
+<p><a href="https://youtu.be/HKh54BkaOK0?si=H5YblaDZpwx3k4_c&amp;t=2729" target="_blank">AWS re:Invent 2019: Get the most from Elastic Load Balancing for different workloads</a></p>
+<p><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/target-group-health-checks.html#health-check-settings" target="_blank">NLB - Health check settings</a></p>
+<p><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/target-group-health-checks.html#health-check-settings" target="_blank">ALB - Health check settings</a></p>
+</div>
+<hr />
+<h2 id="client-behavior">Client behavior</h2>
+<p>When designing with high availability in mind, it's crucial to factor in client behavior. Clients interacting with an Network or Application Load Balancers. During periods of system overload or partial failure, these clients can exacerbate the issue by adding additional load to the system by competing for resources.</p>
+<p>In the following section, we focus on clients and how they can be configured to allow for predictable and controlled behavior.</p>
+<p><img alt="High level overview of client retry logic" src="../images/retry-exponential-back-off-jitter.png" /></p>
+<p><em>High level overview of an example of client retry logic, details in the following sections.</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This best practice is based on scenarios where client behavior can be adjusted, often the case with SDK clients and Content Delivery Networks (CDNs). When clients are end-users utilizing web browsers, they are typically less susceptible to the issues mentioned in this section.</p>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title">References and Further Information</p>
+<p><a href="https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/" target="_blank">Timeouts, retries, and backoff with jitter</a></p>
+</div>
+<h3 id="fail-fast">Fail-fast</h3>
+<p>When setting up a client, you'll often have an estimate of the time required for a standard request to complete. Your load balancer's idle timeout needs to cater to the slowest expected request. However, if you can control the client timeout logic, it is recommended to fail fast, when you know the request is taking longer than expected. In other words, if your clients is performing a simple GET request that typically takes less than 1 second to be completed, the client should not wait for 60 seconds if the server is not responding. Failing fast allows the client to quickly switch to another load balancer IP, potentially rerouting to a different target and improving the request's chance of success. It's important to pair this technique with strategies like <a href="/aws-elb-best-practices/reliability/failure_management/#retrying-failed-requests-with-exponential-back-off-and-jitter">Retrying failed requests with exponential back-off and jitter</a>, as failing fast might add extra strain to an already burdened system.</p>
+<div class="admonition tip">
+<p class="admonition-title">Best Practice</p>
+<p><strong>[ALB, NLB]</strong> Implement fail-fast logic in the clients.</p>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title">References and Further Information</p>
+<p><a href="https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/rel_mitigate_interaction_failure_client_timeouts.html" target="_blank">Set client timeouts</a></p>
+<p><a href="https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/rel_mitigate_interaction_failure_fail_fast.html">Fail fast and limit queues</a></p>
+</div>
+<hr />
+<h3 id="retrying-failed-requests-with-exponential-back-off-and-jitter">Retrying failed requests with exponential back-off and jitter</h3>
+<p>When clients experience connection or requests failures, retrying is a common response. While this is generally a good practice, it's important to note that simultaneous retries from multiple clients can lead to a phenomenon known as a <strong>"retry storm"</strong>. This situation can overload the system, reducing the likelihood of successful connections and delaying service recovery.</p>
+<p>To implement retries effectively, consider the following guidelines:</p>
+<ul>
+<li>Use retries to handle partial and transient failures, understanding that they work best when failures are infrequent or short-lived.</li>
+<li>Apply backoff strategies, such as exponential backoff with limits on retry attempts, to avoid exacerbating failures caused by system overloads.</li>
+<li>Design APIs to be idempotent to ensure that retries do not have unintended side effects.</li>
+<li>Introduce jitter to retry mechanisms and periodic work to avoid synchronized retries and spikes in load, which helps in spreading out the demand on resources over time.</li>
+</ul>
+<p>It's crucial to carefully balance and coordinate timeouts, retries, backoff, and jitter to mitigate the risks associated with distributed system failures while maintaining system performance and availability.</p>
+<div class="admonition tip">
+<p class="admonition-title">Best Practice</p>
+<p><strong>[ALB, NLB]</strong> Implement retry with exponential back-off and jitter to avoid retry storm.</p>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title">References and Further Information</p>
+<p><a href="https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/" target="_blank">Timeouts, retries, and backoff with jitter</a></p>
+<p><a href="https://youtu.be/HKh54BkaOK0?si=OzdPWzJASNDqJ9cg&amp;t=389" target="_blank">AWS re:Invent 2019: Get the most from Elastic Load Balancing for different workloads</a></p>
+<p><a href="https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/" target="_blank">Exponential Backoff And Jitter</a></p>
+<p><a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/" target="_blank">Making retries safe with idempotent APIs</a></p>
+<p><a href="https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/rel_mitigate_interaction_failure_limit_retries.html" target="_blank">Control and limit retry calls</a></p>
+<p><a href="https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/retry-backoff.html" target="_blank">Retry with backoff pattern</a></p>
+</div>
+<hr />
+<h3 id="use-dns-to-deliver-traffic-to-load-balancers">Use DNS to deliver traffic to load balancers</h3>
+<p>Clients use the <a href="https://en.wikipedia.org/wiki/Domain_Name_System" target="_blank">Domain Name Service (DNS)</a> to determine how to reach the load balancer for your application. DNS provides the IP address that the client connects to. The ELB service (which includes Classic Load Balancer, Application Load Balancer and Network Load Balancer) constantly monitors the health and status of each load balancer. When necessary it updates the load balancer DNS records to only include the IP addresses of healthy and properly scaled resources. For ALB and CLB there are various operations that can cause the IP address of the load balancer to change - therefore, clients should not use IP addresses. Instead, they should use DNS to resolve the IP addresses of available load balancers. Multiple IP addresses may be returned in a DNS response (depending on the load balancer nodes that are active and healthy) so clients should attempt to connect to a different IP should the first connection attempt fail. Finally, the DNS record Time to Live (TTL) for load balancers is 60 seconds. DNS TTL is the numeric value (in seconds) that DNS resolvers use to determine how long to cache a record before making another query to Route 53. It is important the clients honor that and perform lookups when the DNS record they previously retrieved has expired.</p>
+<div class="admonition tip">
+<p class="admonition-title">Best Practice</p>
+<p><strong>[ALB, NLB]</strong> Make sure clients and local DNS servers respect DNS TTL (time to live) of 60 seconds, and do not cache DNS results longer than the TTL.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Best Practice</p>
+<p><strong>[ALB, NLB]</strong> Configure clients to reconnect to other IP after a connection failure.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>NLB works with static IP addresses and it is an alternative for clients unable to operate based on DNS. However, we recommend using DNS for NLB when you can. This is because, in scenarios where targets in an availability zone are failing the Health Checks and cross-zone load balancing is turned off, the load balancer's DNS record is updated to exclude the IP addresses of the affected zone. As a result, adhering to DNS results can enhance the reliability and availability of connections to NLBs. This approach helps ensure that traffic is directed to healthy and operational zones, maintaining efficient load balancing.</p>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title">References and Further Information</p>
+<p><a href="https://youtu.be/HKh54BkaOK0?si=OzdPWzJASNDqJ9cg&amp;t=389" target="_blank">AWS re:Invent 2019: Get the most from Elastic Load Balancing for different workloads</a></p>
+</div>
+<hr />
+<h2 id="use-amazon-route-53-application-recovery-controller-for-zonal-shift">Use Amazon Route 53 Application Recovery Controller for zonal shift</h2>
+<p>If you are experiencing issues in your AWS environment that are isolated to a single Availability Zone (AZ), it's often advisable to shift traffic away from that AZ. In an ideal setup, effective health checks would identify the system's unavailability in that AZ, triggering an automated failover in DNS. This process would result in the removal of the load balancer nodes in the impacted AZ from the DNS response. However,  particularly in cases of intermittent or <a href="https://docs.aws.amazon.com/whitepapers/latest/advanced-multi-az-resilience-patterns/gray-failures.html" target="_blank">gray failures</a>, you may want to proactively ensure that an AZ is evacuated until specific readiness checks are passing. Amazon Route 53 Application Recovery Controller integrates with both Application and Network Load Balancers for zonal shift operations when necessary. This <a href="https://aws.amazon.com/blogs/networking-and-content-delivery/building-highly-resilient-applications-using-amazon-route-53-application-recovery-controller-part-1-single-region-stack/" target="_blank">blog post</a> covers in details how to build resilient applications using this feature.</p>
+<div class="admonition tip">
+<p class="admonition-title">Best Practice</p>
+<p><strong>[ALB, NLB]</strong> Use Amazon Route 53 Application Recovery Controller for zonal shift.</p>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title">References and Further Information</p>
+<p><a href="https://docs.aws.amazon.com/whitepapers/latest/advanced-multi-az-resilience-patterns/advanced-multi-az-resilience-patterns.html" target="_blank">Advanced Multi-AZ Resilience Patterns</a></p>
+<p><a href="https://aws.amazon.com/route53/application-recovery-controller/" target="_blank">Amazon Route 53 Application Recovery Controller</a></p>
+<p><a href="https://aws.amazon.com/blogs/networking-and-content-delivery/building-highly-resilient-applications-using-amazon-route-53-application-recovery-controller-part-1-single-region-stack/" target="_blank">Building highly resilient applications using Amazon Route 53 Application Recovery Controller, Part 1: Single-Region stack</a></p>
+<p><a href="https://docs.aws.amazon.com/r53recovery/latest/dg/route53-arc-best-practices.html#route53-arc-best-practices.zonal-shifts" target="_blank">Best practices for zonal shifts in Route 53 ARC</a></p>
+<p><a href="https://www.youtube.com/watch?v=_0F-wdwiqZo" target="_blank">AWS re:Invent 2023 - Using zonal autoshift to automatically recover from an AZ impairment</a></p>
+</div>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide", "navigation.top", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+    
+  </body>
+</html>
