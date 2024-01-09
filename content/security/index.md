@@ -26,4 +26,13 @@ A few examples can help clarify these responsibility boundaries:
     [Shared Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/){:target="_blank"}
 
 
+## In this Guide
+
+* [Data Protection](./data_protection)
+* [Incident Response](./incident_response)
+* [Infrastructure Protection](./infrastructure_protection)
+* [Security Assurance](./security_assurance)
+* [Vulnerability Management](./vulnerability_management)
+
+
 --8<-- "feedback.md"
