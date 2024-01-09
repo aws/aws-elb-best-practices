@@ -1,0 +1,1 @@
+    **[ALB, NLB]** Configure deep health check, that include the application's dependencies. 

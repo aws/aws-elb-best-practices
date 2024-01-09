@@ -1,0 +1,1 @@
+    **[ALB, NLB]** Register targets in all Availability Zones configured in the load balancer. 

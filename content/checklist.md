@@ -97,3 +97,61 @@ The section contains all best practices mentioned in the guide.
 - [x] 
 --8<-- "alb-bp-sec14.md"
 [(more details)](/aws-elb-best-practices/security/vulnerability_management/#desync-mitigation-alb-only)
+
+# Reliability
+
+## Failure Management
+
+- [x] 
+--8<-- "alb-bp-rel09.md"
+[(more details)](/aws-elb-best-practices/reliability/failure_management/#health-check-depth)
+
+- [x] 
+--8<-- "alb-bp-rel10.md"
+[(more details)](/aws-elb-best-practices/reliability/failure_management/#health-check-interval-and-timeout)
+
+- [x] 
+--8<-- "alb-bp-rel11.md"
+[(more details)](/aws-elb-best-practices/reliability/failure_management/#fail-fast)
+
+- [x] 
+--8<-- "alb-bp-rel12.md"
+[(more details)](/aws-elb-best-practices/reliability/failure_management/#retrying-failed-requests-with-exponential-back-off-and-jitter)
+
+- [x] 
+--8<-- "alb-bp-rel07.md"
+[(more details)](/aws-elb-best-practices/reliability/failure_management/#use-dns-to-deliver-traffic-to-load-balancers)
+
+- [x] 
+--8<-- "alb-bp-rel08.md"
+[(more details)](/aws-elb-best-practices/reliability/failure_management/#use-dns-to-deliver-traffic-to-load-balancers)
+
+- [x] 
+--8<-- "alb-bp-rel13.md"
+[(more details)](/aws-elb-best-practices/reliability/failure_management/#use-amazon-route-53-application-recovery-controller-for-zonal-shift)
+
+## Workload Achitecture
+
+- [x] 
+--8<-- "alb-bp-rel01.md"
+[(more details)](/aws-elb-best-practices/reliability/workload_architecture/#use-multiple-availability-zones)
+
+- [x] 
+--8<-- "alb-bp-rel06.md"
+[(more details)](/aws-elb-best-practices/reliability/workload_architecture/#use-multiple-availability-zones)
+
+- [x] 
+--8<-- "alb-bp-rel02.md"
+[(more details)](/aws-elb-best-practices/reliability/workload_architecture/#availability-zone-independence-azi)
+
+- [x] 
+--8<-- "alb-bp-rel03.md"
+[(more details)](/aws-elb-best-practices/reliability/workload_architecture/#static-stability)
+
+- [x] 
+--8<-- "alb-bp-rel04.md"
+[(more details)](/aws-elb-best-practices/reliability/workload_architecture/#use-aws-global-accelerator)
+
+- [x] 
+--8<-- "alb-bp-rel05.md"
+[(more details)](/aws-elb-best-practices/reliability/workload_architecture/#isolate-applications)

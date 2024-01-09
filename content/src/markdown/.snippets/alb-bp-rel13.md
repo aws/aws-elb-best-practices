@@ -1,0 +1,1 @@
+    **[ALB, NLB]** Use Amazon Route 53 Application Recovery Controller for zonal shift.

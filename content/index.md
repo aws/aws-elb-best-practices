@@ -11,8 +11,12 @@ We currently have published guides for the following topics:
     * [Infrastructure Protection](security/infrastructure_protection)
     * [Security Assurance](security/security_assurance)
     * [Vulnerability Management](security/vulnerability_management)
+* [ELB Best Practices for Reliability](reliability/)
+    * [Data Protection](reliability/failure_management)
+    * [Incident Response](reliability/workload_architecture)
 
-We have plans to extend the guides to include a variety of topics such as Performance, Reliability, Observability and Scaling.
+
+We have plans to extend the guides to include a variety of topics such as Performance, Observability and Scaling.
 
 ## About
 
