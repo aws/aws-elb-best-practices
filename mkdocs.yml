@@ -28,6 +28,22 @@ theme:
         name: switch to light mode
     
 
+nav:
+  - Home: index.md
+  - Security: 
+    - Home: security/index.md
+    - Data Protection: security/data_protection.md
+    - Incident Response: security/incident_response.md
+    - Infrastructure Protection: security/infrastructure_protection.md
+    - Security Assurance: security/security_assurance.md
+    - Vulnerability Management: security/vulnerability_management.md
+  - Reliability:
+    - Home: reliability/index.md
+    - Failure Management: reliability/failure_management.md
+    - Workload Architecture: reliability/workload_architecture.md
+  - Checklist: checklist.md
+  - Bookmarks: bookmarks.md
+
 
 plugins: 
     - search
