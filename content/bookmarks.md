@@ -93,11 +93,11 @@ List of ELB related content
 
 - [Getting Started with AWS Gateway Load Balancer](https://www.youtube.com/watch?v=f4DduW2M5WI){:target="_blank"}
 
-- [AWS re:Invent 2019 - Get the most from Elastic Load Balancing for different workloads](https://www.youtube.com/watch?v=HKh54BkaOK0&t=2457s){:target="_blank"}
+- [AWS re:Invent 2019 - Get the most from Elastic Load Balancing for different workloads](https://www.youtube.com/watch?v=HKh54BkaOK0){:target="_blank"}
 
-- [AWS re:Invent 2018 - Elastic Load Balancing: Deep Dive and Best Practices](https://www.youtube.com/watch?v=VIgAT7vjol8&t=2557s){:target="_blank"}
+- [AWS re:Invent 2018 - Elastic Load Balancing: Deep Dive and Best Practices](https://www.youtube.com/watch?v=VIgAT7vjol8){:target="_blank"}
 
-- [AWS re:Invent 2017 - Deep Dive into the New Network Load Balancer](https://www.youtube.com/watch?v=z0FBGIT1Ub4&t=936s){:target="_blank"}
+- [AWS re:Invent 2017 - Deep Dive into the New Network Load Balancer](https://www.youtube.com/watch?v=z0FBGIT1Ub4){:target="_blank"}
 
 - [AWS re:Invent 2017 - Elastic Load Balancing Deep Dive and Best Practices](https://www.youtube.com/watch?v=9TwkMMogojY){:target="_blank"}
 
