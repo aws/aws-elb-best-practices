@@ -17,6 +17,11 @@ List of ELB related content
 
 
 ### Blog Posts
+
+- [Scaling strategies for Elastic Load Balancing](https://aws.amazon.com/blogs/networking-and-content-delivery/scaling-strategies-for-elastic-load-balancing/){:target="_blank"}
+
+- [Introducing mTLS for Application Load Balancer](https://aws.amazon.com/blogs/networking-and-content-delivery/introducing-mtls-for-application-load-balancer/){:target="_blank"}
+
 - [Application Load Balancer-type Target Group for Network Load Balancer](https://aws.amazon.com/blogs/networking-and-content-delivery/application-load-balancer-type-target-group-for-network-load-balancer/){:target="_blank"}
 
 - [Best practices for deploying Gateway Load Balancer](https://aws.amazon.com/blogs/networking-and-content-delivery/best-practices-for-deploying-gateway-load-balancer/){:target="_blank"}
