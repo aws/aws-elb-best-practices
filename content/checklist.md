@@ -111,6 +111,10 @@ The section contains all best practices mentioned in the guide.
 [(more details)](/aws-elb-best-practices/reliability/failure_management/#health-check-interval-and-timeout)
 
 - [x] 
+--8<-- "alb-bp-rel14.md"
+[(more details)](/aws-elb-best-practices/reliability/failure_management/#automatic-target-weights)
+
+- [x] 
 --8<-- "alb-bp-rel11.md"
 [(more details)](/aws-elb-best-practices/reliability/failure_management/#fail-fast)
 
