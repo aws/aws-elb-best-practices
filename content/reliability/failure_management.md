@@ -58,6 +58,32 @@ There are two common strategies to address this:
     [ALB - Health check settings](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/target-group-health-checks.html#health-check-settings){:target="_blank"}
 
 ---
+## Automatic Target Weights
+
+Health checks are useful for detecting when a target is down. However, they can sometimes miss partial failures. Also, depending on the configured thresholds and intervals, health checks may take time to remove an unhealthy target. 
+
+Automatic Target Weights (ATW) improves workload availability by detecting targets with high error rates (compared to other targets). ATW then reduces traffic sent to these anomalous targets. Once a target recovers, ATW gradually increases traffic back to original levels.
+
+To use ATW:
+
+- Configure "weighted random" as the load balancing algorithm for your target groups. 
+- Turn on anomaly mitigation. 
+
+!!! tip "Best Practice"
+--8<-- "alb-bp-rel14.md"
+
+!!! note "Note"
+    The "weighted random" algorithm does not support the "Slow start" mechanism that is available with the "Round robin" algorithm.
+
+!!! abstract "References and Further Information"
+    
+    [AWS Documentation - Automatic Target Weights (ATW)](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights){:target="_blank"}
+
+    [Improving availability with Application Load Balancer automatic target weights](https://aws.amazon.com/blogs/networking-and-content-delivery/improving-availability-with-application-load-balancer-automatic-target-weights/){:target="_blank"}
+
+    [Application Load Balancer increases application availability with Automatic Target Weights](https://aws.amazon.com/about-aws/whats-new/2023/11/application-load-balancer-availability-target-weights/){:target="_blank"}
+
+---
 ## Client behavior
 
 When designing with high availability in mind, it's crucial to factor in client behavior. Clients interacting with an Network or Application Load Balancers. During periods of system overload or partial failure, these clients can exacerbate the issue by adding additional load to the system by competing for resources.
