@@ -578,6 +578,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#automatic-target-weights" class="md-nav__link">
+    Automatic Target Weights
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#client-behavior" class="md-nav__link">
     Client behavior
   </a>
@@ -746,6 +753,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#automatic-target-weights" class="md-nav__link">
+    Automatic Target Weights
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#client-behavior" class="md-nav__link">
     Client behavior
   </a>
@@ -852,6 +866,29 @@
 <p><a href="https://youtu.be/HKh54BkaOK0?si=H5YblaDZpwx3k4_c&amp;t=2729" target="_blank">AWS re:Invent 2019: Get the most from Elastic Load Balancing for different workloads</a></p>
 <p><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/target-group-health-checks.html#health-check-settings" target="_blank">NLB - Health check settings</a></p>
 <p><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/target-group-health-checks.html#health-check-settings" target="_blank">ALB - Health check settings</a></p>
+</div>
+<hr />
+<h2 id="automatic-target-weights">Automatic Target Weights</h2>
+<p>Health checks are useful for detecting when a target is down. However, they can sometimes miss partial failures. Also, depending on the configured thresholds and intervals, health checks may take time to remove an unhealthy target. </p>
+<p>Automatic Target Weights (ATW) improves workload availability by detecting targets with high error rates (compared to other targets). ATW then reduces traffic sent to these anomalous targets. Once a target recovers, ATW gradually increases traffic back to original levels.</p>
+<p>To use ATW:</p>
+<ul>
+<li>Configure "weighted random" as the load balancing algorithm for your target groups. </li>
+<li>Turn on anomaly mitigation. </li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Best Practice</p>
+<p><strong>[ALB]</strong> Use the "weighted random" algorithm with anomaly mitigation enabled on your target groups. </p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The "weighted random" algorithm does not support the "Slow start" mechanism that is available with the "Round robin" algorithm.</p>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title">References and Further Information</p>
+<p><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights" target="_blank">AWS Documentation - Automatic Target Weights (ATW)</a></p>
+<p><a href="https://aws.amazon.com/blogs/networking-and-content-delivery/improving-availability-with-application-load-balancer-automatic-target-weights/" target="_blank">Improving availability with Application Load Balancer automatic target weights</a></p>
+<p><a href="https://aws.amazon.com/about-aws/whats-new/2023/11/application-load-balancer-availability-target-weights/" target="_blank">Application Load Balancer increases application availability with Automatic Target Weights</a></p>
 </div>
 <hr />
 <h2 id="client-behavior">Client behavior</h2>
