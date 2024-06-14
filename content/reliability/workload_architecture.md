@@ -27,7 +27,7 @@ Equally important, all AZs in use by your ELB should have targets registered in 
 ---
 ## Availability Zone Independence (AZI)
 
-To improve the availability of your load balancer in scenarios where a specific Availability Zone (AZ) faces issues, it is important to shift traffic away from the impacted AZ. A successful zonal evacuation strategy requires [Availability Zone Independence (AZI)](https://aws.amazon.com/blogs/networking-and-content-delivery/using-load-balancer-target-group-health-thresholds-to-improve-availability/){:target="_blank"} which in turn requires cross-zone load balancing to be turned off.
+To improve the availability of your load balancer in scenarios where a specific Availability Zone (AZ) faces issues, it is important to shift traffic away from the impacted AZ. A successful zonal evacuation strategy requires [Availability Zone Independence (AZI)](https://docs.aws.amazon.com/whitepapers/latest/advanced-multi-az-resilience-patterns/availability-zone-independence.html){:target="_blank"} which in turn requires cross-zone load balancing to be turned off.
 
 !!! tip "Best Practice"
 --8<-- "alb-bp-rel02.md"
