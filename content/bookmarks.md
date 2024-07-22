@@ -18,6 +18,10 @@ List of ELB related content
 
 ### Blog Posts
 
+- [Preserving client IP address with Proxy protocol v2 and Network Load Balancer](https://aws.amazon.com/blogs/networking-and-content-delivery/preserving-client-ip-address-with-proxy-protocol-v2-and-network-load-balancer/){:target="_blank"}
+
+- [Introducing dual-stack without public IPv4 Application Load Balancer](https://aws.amazon.com/blogs/networking-and-content-delivery/introducing-dual-stack-without-public-ipv4-application-load-balancer/){:target="_blank"}
+
 - [Scaling strategies for Elastic Load Balancing](https://aws.amazon.com/blogs/networking-and-content-delivery/scaling-strategies-for-elastic-load-balancing/){:target="_blank"}
 
 - [Introducing mTLS for Application Load Balancer](https://aws.amazon.com/blogs/networking-and-content-delivery/introducing-mtls-for-application-load-balancer/){:target="_blank"}
@@ -29,6 +33,10 @@ List of ELB related content
 - [Using AWS Lambda to enable static IP addresses for Application Load Balancers](https://aws.amazon.com/blogs/networking-and-content-delivery/using-aws-lambda-to-enable-static-ip-addresses-for-application-load-balancers/){:target="_blank"}
 
 - [Centralized inspection architecture with AWS Gateway Load Balancer and AWS Transit Gateway](https://aws.amazon.com/blogs/networking-and-content-delivery/centralized-inspection-architecture-with-aws-gateway-load-balancer-and-aws-transit-gateway/){:target="_blank"}
+
+- [Elastic Load Balancer: Maximizing Benefits and Keeping Costs Low](https://aws.amazon.com/blogs/networking-and-content-delivery/elb-maximizing-benefits-and-keeping-costs-low/){:target="_blank"}
+
+- [Scaling NLB target groups by connections](https://aws.amazon.com/blogs/networking-and-content-delivery/scaling-nlb-target-groups-by-connections/){:target="_blank"}
 
 - [Improving availability with Application Load Balancer automatic target weights](https://aws.amazon.com/blogs/networking-and-content-delivery/improving-availability-with-application-load-balancer-automatic-target-weights/){:target="_blank"}
 
@@ -72,6 +80,8 @@ List of ELB related content
 
 - [How to integrate Linux instances with AWS Gateway Load Balancer](https://aws.amazon.com/blogs/networking-and-content-delivery/how-to-integrate-linux-instances-with-aws-gateway-load-balancer/){:target="_blank"}
 
+- [Application Load Balancer Simplifies Deployment with Weighted Target Groups](https://aws.amazon.com/blogs/aws/new-application-load-balancer-simplifies-deployment-with-weighted-target-groups/){:target="_blank"}
+
 - [Implement a central ingress Application Load Balancer supporting private Amazon Elastic Kubernetes Service VPCs](https://aws.amazon.com/blogs/networking-and-content-delivery/implement-a-central-ingress-application-load-balancer-supporting-private-amazon-elastic-kubernetes-service-vpcs/){:target="_blank"}
 
 - [Configuring an Application Load Balancer on AWS Outposts](https://aws.amazon.com/blogs/networking-and-content-delivery/configuring-an-application-load-balancer-on-aws-outposts/){:target="_blank"}
@@ -81,6 +91,8 @@ List of ELB related content
 - [Building an Open Source IDS IPS service for Gateway Load Balancer](https://aws.amazon.com/blogs/networking-and-content-delivery/building-an-open-source-ids-ips-service-for-gateway-load-balancer/){:target="_blank"}
 
 - [Gateway Load Balancer support for IPv6](https://aws.amazon.com/blogs/networking-and-content-delivery/new-gateway-load-balancer-support-for-ipv6/){:target="_blank"}
+
+- [Simplify Login with Application Load Balancer Built-in Authentication](https://aws.amazon.com/blogs/aws/built-in-authentication-in-alb/){:target="_blank"}
 
 ### Presentations
 
