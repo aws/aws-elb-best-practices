@@ -120,6 +120,8 @@ List of ELB related content
 
 - [AWS re:Invent 2016 - Elastic Load Balancing Deep Dive and Best Practices](https://www.youtube.com/watch?v=qy7zNaDTYGQ){:target="_blank"}
 
+- [AWS Summit Series 2016 | London: Deep Dive on Elastic Load Balancing](https://www.youtube.com/watch?v=HinwLb2lpLQ){:target="_blank"}
+
 - [AWS re:Invent 2015 - Elastic Load Balancing Deep Dive and Best Practices](https://www.youtube.com/watch?v=91TAx4fmcxk){:target="_blank"}
 
 - [AWS re:Invent 2014 - Elastic Load Balancing Deep Dive and Best Practices](https://www.youtube.com/watch?v=K-YFw9-_NPE){:target="_blank"}
