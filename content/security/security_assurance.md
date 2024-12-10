@@ -6,7 +6,7 @@ Cloud environments are dynamic by nature. Having automated security checks is im
 
 Both [AWS Trusted Advisor](https://aws.amazon.com/premiumsupport/technology/trusted-advisor/){:target="_blank"} and [AWS Security Hub](https://aws.amazon.com/security-hub/){:target="_blank"} offers security and best practices [checks specific for ELBs](https://docs.aws.amazon.com/securityhub/latest/userguide/elb-controls.html){:target="_blank"}.
 
-For example, you can enable AWS Security Hub to validate whether your ALBs have proper dsync mitigation mode with the rule ["Application Load Balancer should be configured with defensive or strictest desync mitigation mode"](https://docs.aws.amazon.com/securityhub/latest/userguide/elb-controls.html#elb-12){:target="_blank"}
+For example, you can enable AWS Security Hub to validate whether your ALBs have proper desync mitigation mode with the rule ["Application Load Balancer should be configured with defensive or strictest desync mitigation mode"](https://docs.aws.amazon.com/securityhub/latest/userguide/elb-controls.html#elb-12){:target="_blank"}
 
 
 
