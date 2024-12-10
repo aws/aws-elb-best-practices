@@ -81,7 +81,7 @@ In the event of a DDoS attack, distinguishing between normal and abnormal traffi
 To profile typical traffic, consider the following aspects:
 
 - **Traffic patterns:** What are the typical fluctuations in your traffic throughout the day? For instance, a food delivery company may see a surge in traffic around lunch time and significantly less activity in the early hours of the day. 
-- **User agents:** What are the usual user agents connecingt to your load balancer? These could be common web browsers or specific applications.
+- **User agents:** What are the usual user agents connecting to your load balancer? These could be common web browsers or specific applications.
 - **Demographics:** Where are the clients accessing your load balancer typically located?
 
 Significant deviation from these norms could indicate a potential attack, providing valuable information for mitigation strategies. For example, you could use [AWS WAF](/security/infrastructure_protection/#consider-using-aws-waf-alb-only) to block access from some specific countries if you identify unusual traffic from those locations.
