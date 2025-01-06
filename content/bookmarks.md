@@ -15,8 +15,17 @@ List of ELB related content
 
 - [User Guide for Classic Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/introduction.html){:target="_blank"}
 
-
 ### Blog Posts
+
+- [Accelerate IPv6 application migration with AWS PrivateLink and dual stack Network Load Balancers UDP support](https://aws.amazon.com/blogs/networking-and-content-delivery/accelerate-ipv6-application-migration-with-aws-privatelink-and-dual-stack-network-load-balancers-udp-support/){:target="_blank"}
+
+- [Using cross-zone load balancing with zonal shift](https://aws.amazon.com/blogs/networking-and-content-delivery/using-cross-zone-load-balancing-with-zonal-shift/){:target="_blank"}
+
+- [Introducing NLB TCP configurable idle timeout](https://aws.amazon.com/blogs/networking-and-content-delivery/introducing-nlb-tcp-configurable-idle-timeout/){:target="_blank"}
+
+- [Introducing configurable TCP idle timeout for Gateway Load Balancer](https://aws.amazon.com/blogs/networking-and-content-delivery/introducing-configurable-tcp-idle-timeout-for-gateway-load-balancer/){:target="_blank"}
+
+- [Security best practices when using ALB authentication](https://aws.amazon.com/blogs/networking-and-content-delivery/security-best-practices-when-using-alb-authentication/){:target="_blank"}
 
 - [Preserving client IP address with Proxy protocol v2 and Network Load Balancer](https://aws.amazon.com/blogs/networking-and-content-delivery/preserving-client-ip-address-with-proxy-protocol-v2-and-network-load-balancer/){:target="_blank"}
 
@@ -95,6 +104,8 @@ List of ELB related content
 - [Simplify Login with Application Load Balancer Built-in Authentication](https://aws.amazon.com/blogs/aws/built-in-authentication-in-alb/){:target="_blank"}
 
 ### Presentations
+
+- [AWS re:Invent 2024 - Optimizing ELB traffic distribution for high availability](https://www.youtube.com/watch?v=EhbFossuQhI){:target="_blank"}
 
 - [AWS re:Invent 2023 - Enhance your app’s security & availability with Elastic Load Balancing](https://www.youtube.com/watch?v=6iO6wtDOKGM){:target="_blank"}
 
