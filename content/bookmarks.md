@@ -17,6 +17,16 @@ List of ELB related content
 
 ### Blog Posts
 
+- [Exploring Data Transfer Costs for AWS Network Load Balancers](https://aws.amazon.com/blogs/networking-and-content-delivery/exploring-data-transfer-costs-for-aws-network-load-balancers/){:target="_blank"}
+
+- [Securing your web applications and optimizing their performance with AWS Application Load Balancer](https://aws.amazon.com/blogs/networking-and-content-delivery/securing-your-web-applications-and-optimizing-their-performance-with-aws-application-load-balancer/){:target="_blank"}
+
+- [Exploring new subnet management capabilities of Network Load Balancer](https://aws.amazon.com/blogs/networking-and-content-delivery/exploring-new-subnet-management-capabilities-of-network-load-balancer/){:target="_blank"}
+
+- [Using Load Balancer Capacity Unit Reservation to prepare for sharp increases in traffic](https://aws.amazon.com/blogs/networking-and-content-delivery/using-load-balancer-capacity-unit-reservation-to-prepare-for-sharp-increases-in-traffic/){:target="_blank"}
+
+- [Load Balancer Migration to AWS: Recommended Strategies and Best Practices](https://aws.amazon.com/blogs/networking-and-content-delivery/load-balancer-migration-to-aws-recommended-strategies-and-best-practices-2/){:target="_blank"}
+
 - [Accelerate IPv6 application migration with AWS PrivateLink and dual stack Network Load Balancers UDP support](https://aws.amazon.com/blogs/networking-and-content-delivery/accelerate-ipv6-application-migration-with-aws-privatelink-and-dual-stack-network-load-balancers-udp-support/){:target="_blank"}
 
 - [Using cross-zone load balancing with zonal shift](https://aws.amazon.com/blogs/networking-and-content-delivery/using-cross-zone-load-balancing-with-zonal-shift/){:target="_blank"}
