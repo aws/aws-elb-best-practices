@@ -80,7 +80,7 @@ In the event of a DDoS attack, distinguishing between normal and abnormal traffi
 
 To profile typical traffic, consider the following aspects:
 
-- **Traffic patterns:** What are the typical fluctuations in your traffic throughout the day? For instance, a food delivery company may see a surge in traffic around lunch time and significantly less activity in the early hours of the day. 
+- **Traffic patterns:** What are the typical fluctuations in your traffic throughout the day? For instance, a food delivery company may see a surge in traffic around lunch time and significantly less activity in the early hours of the day.
 - **User agents:** What are the usual user agents connecting to your load balancer? These could be common web browsers or specific applications.
 - **Demographics:** Where are the clients accessing your load balancer typically located?
 
@@ -91,7 +91,7 @@ Significant deviation from these norms could indicate a potential attack, provid
 
 !!! abstract "References and Further Reading"
 
-    [Access Logs](https://w.amazon.com/bin/view/ELB/Teams/CSET/ELB_Best_Practices_Guides/Security/#HAccessLogs){:target="_blank"}
+    [Access Logs](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-access-logs.html){:target="_blank"}
 
     [Monitor your Network Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-monitoring.html){:target="_blank"}
 
