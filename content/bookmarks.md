@@ -17,6 +17,8 @@ List of ELB related content
 
 ### Blog Posts
 
+- [Simplify ALB’s public IP address assignment with VPC IPAM](https://aws.amazon.com/blogs/networking-and-content-delivery/simplify-albs-public-ip-address-assignment-with-vpc-ipam/){:target="_blank"}
+
 - [Exploring Data Transfer Costs for AWS Network Load Balancers](https://aws.amazon.com/blogs/networking-and-content-delivery/exploring-data-transfer-costs-for-aws-network-load-balancers/){:target="_blank"}
 
 - [Securing your web applications and optimizing their performance with AWS Application Load Balancer](https://aws.amazon.com/blogs/networking-and-content-delivery/securing-your-web-applications-and-optimizing-their-performance-with-aws-application-load-balancer/){:target="_blank"}
