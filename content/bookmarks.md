@@ -17,6 +17,12 @@ List of ELB related content
 
 ### Blog Posts
 
+- [Introducing QUIC Protocol Support for Network Load Balancer: Accelerating Mobile-First Applications](https://aws.amazon.com/blogs/networking-and-content-delivery/introducing-quic-protocol-support-for-network-load-balancer-accelerating-mobile-first-applications/){:target="_blank"}
+
+- [Network Load Balancers now support Weighted Target Groups](https://aws.amazon.com/blogs/networking-and-content-delivery/network-load-balancers-now-support-weighted-target-groups/){:target="_blank"}
+
+- [Drive application performance with Application Load Balancer Target Optimizer](https://aws.amazon.com/blogs/networking-and-content-delivery/drive-application-performance-with-application-load-balancer-target-optimizer/){:target="_blank"}
+
 - [Simplify ALB’s public IP address assignment with VPC IPAM](https://aws.amazon.com/blogs/networking-and-content-delivery/simplify-albs-public-ip-address-assignment-with-vpc-ipam/){:target="_blank"}
 
 - [Exploring Data Transfer Costs for AWS Network Load Balancers](https://aws.amazon.com/blogs/networking-and-content-delivery/exploring-data-transfer-costs-for-aws-network-load-balancers/){:target="_blank"}
